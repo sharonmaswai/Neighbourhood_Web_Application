@@ -1,4 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from .models import Profile, Concerns
+from .forms import ProfileForm, ConcernForm
 
 # Create your views here.
 def index(request):
@@ -10,37 +12,36 @@ def create_profile(request):
         form = ProfileForm(request.POST, request.FILES)
         if form.is_valid():
             profile = form.save(commit=False)
-            profile.user=current_user.id
+            #profile.user=current_user.id
             profile.save()
 
         return redirect('profile')
     else:
         form = ProfileForm()
-    return render(request, 'profile-form.html', {"form":form})
+    return render(request, 'profile/profile-form.html', {"form":form})
 def profile(request):
-    # current_user = request.user
-    # profile = Profile.objects.filter(user=current_user.id)
-    # print(profile)
-    # project= Project.objects.all()
+    current_user = request.user
+    profile = Profile.objects.filter(user=current_user.id)
+    print(profile)
     
-    return render(request,'profile.html')
+    
+    return render(request,'profile/profile.html',{'profile':profile})
 def post_concern(request):
     current_user = request.user
     if request.method == 'POST':
-        form = ProfileForm(request.POST, request.FILES)
+        form = ConcernForm(request.POST, request.FILES)
         if form.is_valid():
-            profile = form.save(commit=False)
-            profile.user=current_user.id
-            profile.save()
+            concern = form.save(commit=False)
+            #concern.user=current_user.id
+            concern.save()
 
-        return redirect('profile')
+        return redirect('concerns')
     else:
-        form = ProfileForm()
-    return render(request, 'profile-form.html', {"form":form})
+        form = ConcernForm()
+    return render(request, 'profile/concern-post.html', {"form":form})
 def view_concern(request):
-    # current_user = request.user
-    # profile = Profile.objects.filter(user=current_user.id)
-    # print(profile)
-    # project= Project.objects.all()
+    current_user = request.user
+    concerns = Concerns.objects.all()
     
-    return render(request,'concerns.html')    
+    
+    return render(request,'profile/concerns.html',{'concerns':concerns})    

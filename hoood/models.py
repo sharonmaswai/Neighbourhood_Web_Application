@@ -43,7 +43,7 @@ class Business(models.Model):
     owner = models.CharField(max_length=40)
     business = models.CharField(max_length=200)
     email = models.EmailField(max_length=200)
-    description = models.TextField(max_length=200)
+    description = models.TextField(default='abc',max_length=200)
     location = models.ForeignKey(Hood,on_delete=models.CASCADE) 
     user = models.ForeignKey(User,on_delete=models.CASCADE) 
   

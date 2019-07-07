@@ -1,1 +1,53 @@
-<h1>It works</h1>
+{%extends 'base.html'%}
+{% load bootstrap4 %}
+{%block content%}
+
+<body>
+    <div class="container-fluid">
+            <div class="row">
+                    {% for hood in hoods %}
+                    
+                    <div class="col-md-5">
+                    <div class="card-group "  style="margin:2%;" data-aos='fade-up'>
+                            <div class="view overlay zoom ">
+                                    <img src="{{hood.image.url}}" class="card-img-top">
+                                    
+                            </div>
+                    
+                    <div class="card-body" style="border:2px;">
+                        <a href=""><h5 class="strong-text"> <strong>{{hood.title}}</strong> </h5> </a> <hr class="bg-info">
+                        <p class="black-text pull-right">Posted on:{{hood.pub_date|date:"F d,Y"}}</p>
+                        <h6>By  {{hood.profile}}</h6>
+                        
+                        
+                    </div>
+                    
+                    </div>
+                    
+                    </div>
+                    {% endfor %} 
+                    <div class="col-md-4">
+                            {% for b in business %}
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h3>{{b.business}}</h3>
+                                        <hr>
+                                        <p>{{b.description}}</p>
+                                        <p class="text-center">Owner:{{b.owener}} </p>
+                                        <p>Email address:{{b.email}}</p>
+                                    </div>
+                        
+                                </div>
+                            {% endfor %} 
+                    </div>
+                    <div class="col-md-3">
+
+                    </div>
+                    
+            </div>
+            
+       
+    </div>
+   
+</body>
+{%endblock%}

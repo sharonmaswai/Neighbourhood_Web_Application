@@ -1,9 +1,10 @@
 from django.db import models
-from django.contrib.auth.models import User 
+from django.contrib.auth.models import User
+from tinymce.models import HTMLField 
 
 # Create your models here.
 class Profile(models.Model):
-    image=models.ImageField(upload_to='profiles/')
+    image=models.ImageField(default='image.png',upload_to='profiles/')
     first_name=models.CharField(max_length=30)
     surname=models.CharField(max_length=30)
     phone_number=models.IntegerField()

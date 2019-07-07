@@ -4,11 +4,11 @@ from .models import Profile, Concerns
 
 class ConcernForm(forms.ModelForm):
     class Meta:
-        model = Project
+        model = Concerns
         fields = ('title','description',)
         
         
 class ProfileForm(forms.ModelForm):
     class Meta:
         model = Profile
-        fields = ('first_name','phone_number','bio','image','website') 
+        fields = ('name','phone_number','bio','image','street_name') 

@@ -4,8 +4,8 @@ from .forms import ProfileForm, ConcernForm
 
 # Create your views here.
 def index(request):
-
-    return render(request, 'index.html')
+    hoods = Hood.objects.all()
+    return render(request, 'index.html',{'hoods':hoods})
 def create_profile(request):
     current_user = request.user
     if request.method == 'POST':
@@ -45,3 +45,7 @@ def view_concern(request):
     
     
     return render(request,'profile/concerns.html',{'concerns':concerns})    
+def one_hood(request, hood_id):
+    hoods=Hood.objects.filter(id=hood_id) 
+
+    return render(request, 'single_hood.html'{'hoods':hoods})   

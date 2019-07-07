@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import Profile, Concerns
+from .models import Profile, Concerns, Hood
 from .forms import ProfileForm, ConcernForm
 
 # Create your views here.
@@ -48,4 +48,4 @@ def view_concern(request):
 def one_hood(request, hood_id):
     hoods=Hood.objects.filter(id=hood_id) 
 
-    return render(request, 'single_hood.html'{'hoods':hoods})   
+    return render(request, 'single_hood.html',{'hoods':hoods})   

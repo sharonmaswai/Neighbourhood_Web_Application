@@ -53,6 +53,7 @@ class Business(models.Model):
     def delete_business(self):
         self.delete()    
 class Ammenities(models.Model):
+    location = models.ForeignKey(Hood,default=0,on_delete=models.CASCADE) 
     police_station=models.CharField(max_length=100)
     Hospital= models.CharField(max_length=100)
     School=models.CharField(max_length=100)

@@ -4,19 +4,60 @@
 {% block content %}
 <style>
     header{
-        background-image: url('https://images.pexels.com/photos/352598/house-dutch-sky-landscape-352598.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
-        background-repeat: no-repeat;
-        background-attachment: fixed;
-        background-position: center; 
+       
         width: 100%;
         height: 700px;
         
         
     }
+    .footer-cont {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        padding-top: 200px;
+        padding-left: 300px;
+    } 
+    .footer-cont ul {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -ms-flex-flow: wrap;
+        flex-flow: wrap;
+    }
+    
+    .footer-cont ul li {
+        margin-bottom: 8px;
+    }
+
+    .footer-cont ul {
+        padding: 0;
+        margin: 0;
+    } 
+    .footer-cont ul li {
+    display: inline-block;
+    list-style: none;
+    margin-right: 16px;
+}
+.footer-cont ul li:last-child {
+    margin-right: 0;
+}
+.footer-cont ul li a {
+    color: #02070c;
+}      
     h1{
         font-family: 'Clicker Script', cursive; 
-        padding-top: 150px;
-        padding-left: 400px; 
+        padding-top: 40px;
+        padding-left: 300px; 
         color: rgb(8, 8, 22);
         font-size: 120px; 
         letter-spacing: 10px;
@@ -26,17 +67,34 @@
         
         font-size: 50px;
         color: rgb(8, 8, 22);
-       
+        padding-bottom: 100px; 
         letter-spacing: 4px;
         text-align: center;
         font-weight: 20;
+    }
+    .img{
+        
+        border-radius: 50%;
+        margin-left: 600px;
+        margin-top: 90px;
+        
+    }   
+    #img{
+        height: 250px;
+        border-radius: 50%;
+    
     }
 
 
 </style>
 <div class="container-fluid">
     <div class="row">
-            <header>
+            <header> 
+                <div class="img">
+                        <img style="border-radius: 50%;width: 120px;height: 120px; " src="https://png.seekclipart.com/clipng/s/361-3615780_binoculars-cartoon-black-and-white-clipart.png" alt="">
+
+                </div>
+                   
                     <h1>The HoodWatch</h1>
                     <p class="p">Be in the Know</p>
             </header>
@@ -45,9 +103,9 @@
     <div class="row">
             {% for hood in hoods %}
             <div class="col-md-4">
-            <div class="card-group "  style="margin:2%;" data-aos='fade-up'>
+            <div class="card-group "  style="margin:2%; height: 200px;" data-aos='fade-up'>
                     <div class="view overlay zoom ">
-                            <img src="{{hood.image.url}}" class="card-img-top">
+                            <img src="{{hood.image.url}}" class="card-img-top" id='img'>
                             <div class="mask flex-center rgba-black-strong">
                                 <a href="{% url 'one_hood' hood.id %}" class="btn btn-dark" >VIEW <i class="far fa-chevron-double-right"></i>  </a>
                             </div>
@@ -67,6 +125,23 @@
 
 
     </div>
+    <div class="row">
+            <footer class="panel">
+                    <div class="footer-cont ">
+                            <ul>
+                             <li><a href='#'>About us</a></li>
+                             <li><a href='#'>concerns</a></li>
+                             <li><a href='#'>Businesses</a></li>
+                             <li><a href='#'>Profile</a></li>
+                             
+                             
+                            </ul>
+                            <span style="padding-left:10px;" class='copyright'>© 2019 HOODWATCH</span>
+                            </div>
+            </footer>
+
+    </div>
+    
   
 </div>
 

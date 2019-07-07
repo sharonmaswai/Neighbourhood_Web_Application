@@ -1,10 +1,11 @@
 from django.shortcuts import render, redirect
-from .models import Profile, Concerns, Hood
+from .models import Profile, Concerns, Hood, Business
 from .forms import ProfileForm, ConcernForm
 
 # Create your views here.
 def index(request):
     hoods = Hood.objects.all()
+   
     return render(request, 'index.html',{'hoods':hoods})
 def create_profile(request):
     current_user = request.user
@@ -47,5 +48,5 @@ def view_concern(request):
     return render(request,'profile/concerns.html',{'concerns':concerns})    
 def one_hood(request, hood_id):
     hoods=Hood.objects.filter(id=hood_id) 
-
-    return render(request, 'single_hood.html',{'hoods':hoods})   
+    business= Business.objects.filter(id=hood_id)
+    return render(request, 'single_hood.html',{'hoods':hoods,'business':business})   

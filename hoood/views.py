@@ -52,9 +52,9 @@ def one_hood(request, hood_id):
     return render(request, 'single_hood.html',{'hoods':hoods,'business':business})   
 def search_results(request):
     
-    if 'search_project' in request.GET and request.GET['search_project']:
-        search_term=request.GET.get('search_project')
+    if 'search_hood' in request.GET and request.GET['search_hood']:
+        search_term=request.GET.get('search_hood')
         
-        searched_hood=Hood.search_project(search_term)
+        searched_hood=Hood.search_hood(search_term)
         
     return render(request,'search.html',{'searched_hood':searched_hood})  

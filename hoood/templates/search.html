@@ -12,7 +12,7 @@
         <div class="card-columns">
 
             {% if searched_hood %}
-            {% for project in searched_hood %}
+            {% for hood in searched_hood %}
                 <!-- Card -->
       
             <div class="card">
@@ -29,7 +29,9 @@
                 <div class="card-body">
             
                 <!-- Title -->
-                <h4 class="card-title">{{hood.title}}</h4>
+                <h4 class="card-title">{{hood.name}}</h4>
+                <h4 class="card-title">{{hood.location}}</h4>
+                
                 <!-- Text -->
                 
     
@@ -47,7 +49,7 @@
         </div>
         {% else %}
             <h2>No results found</h2>
-            {% endif %}
+        {% endif %}
         <hr>
     </body>
 

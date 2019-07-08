@@ -103,7 +103,7 @@
     <div class="row">
             {% for hood in hoods %}
             <div class="col-md-4">
-            <div class="card-group "  style="margin:2%; height: 200px;" data-aos='fade-up'>
+            <div class="card-group "  style="margin:2%; height: 200px;padding-bottom:100px; " data-aos='fade-up'>
                     <div class="view overlay zoom ">
                             <img src="{{hood.image.url}}" class="card-img-top" id='img'>
                             <div class="mask flex-center rgba-black-strong">
@@ -117,13 +117,16 @@
                 <h5> {{hood.location}}</h5>
              
             </div>
+           
             
             </div>
+            <br>
+            <br><br><br><br>
+            <br>
+            <br>
             
             </div>
-            <br>
-            <br>
-            <br>
+           
             {% endfor %} 
 
 

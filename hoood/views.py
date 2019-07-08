@@ -50,3 +50,11 @@ def one_hood(request, hood_id):
     hoods=Hood.objects.filter(id=hood_id) 
     business= Business.objects.filter(id=hood_id)
     return render(request, 'single_hood.html',{'hoods':hoods,'business':business})   
+def search_results(request):
+    
+    if 'search_project' in request.GET and request.GET['search_project']:
+        search_term=request.GET.get('search_project')
+        
+        searched_hood=Hood.search_project(search_term)
+        
+    return render(request,'search.html',{'searched_hood':searched_hood})  

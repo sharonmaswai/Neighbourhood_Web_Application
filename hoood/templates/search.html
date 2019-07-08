@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load bootstrap4%}
+{% block content %}
+<body class="container">
+
+        <div>
+            <h2 class="text-center">Search Results</h2>
+        </div>
+        <br>
+        <hr>
+        <br>
+        <div class="card-columns">
+
+            {% if searched_hood %}
+            {% for project in searched_hood %}
+                <!-- Card -->
+      
+            <div class="card">
+                
+                <!-- Card image -->
+                <div class="view overlay">
+                <img class="card-img-top" src="{{hood.image.url}}">
+                <a href="#!">
+                    <div class="mask rgba-white-slight"></div>
+                </a>
+                </div>
+            
+                <!-- Card content -->
+                <div class="card-body">
+            
+                <!-- Title -->
+                <h4 class="card-title">{{hood.title}}</h4>
+                <!-- Text -->
+                
+    
+                <!-- Button -->
+                <!-- <a class="btn btn-pink" href=""><i class="fas fa-clone left"></i> Vote</a> -->
+                
+            
+                </div>
+            
+            </div>
+            
+            
+        
+        {% endfor %}
+        </div>
+        {% else %}
+            <h2>No results found</h2>
+            {% endif %}
+        <hr>
+    </body>
+
+{%endblock%}

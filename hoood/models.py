@@ -36,6 +36,12 @@ class Hood(models.Model):
 
     def save_hood(self):
         self.save()
+    @classmethod   
+    def search_hood(cls, search_term):
+        
+        searched_item=Hood.objects.filter(title__icontains=search_term)
+        return searched_item
+            
     def __str__(self):
         return self.name  
 

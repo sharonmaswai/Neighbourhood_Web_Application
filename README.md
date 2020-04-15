@@ -1,5 +1,5 @@
-#
-HoodWatch
+# HoodWatch
+### by Sharon Maswai
 
 ## Description
 
@@ -44,7 +44,7 @@ python3.6 manage.py runserver
 
 
 
-##TECHNOLOGIES USED
+## TECHNOLOGIES USED
 
 Python 3.6.7
 
@@ -58,12 +58,12 @@ PostgreSQL
 
 Bootstrap
  
-##BUGS
+## BUGS
 
 There are no known bugs.
 
 
-##CONTACTS
+## CONTACTS
 
 For more information and clarification contact me through chepsharon@gmail.com
 
